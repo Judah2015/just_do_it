@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Just Do It!</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/form-elements.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <style type="text/css">
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+
+</head>
+
+<body style="overflow-x: hidden; overflow-y:scroll">
+
+<!-- Top content -->
+<div class="top-content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text">
+                <h1>Just Do It!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-4 show-forms">
+                <span class="show-register-form active">注册</span>
+                <span class="show-forms-divider">/</span>
+                <span class="show-login-form">登录</span>
+            </div>
+        </div>
+
+        <div class="row register-form">
+            <div class="col-sm-4 col-sm-offset-4">
+                <form class="r-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="用户名（应由1-3个英文字母组成）" class="form-control" id="r_name">
+                        <p class="error">用户名应由1-3个小写字母组成</p>
+                        <p class="error">该用户名已被注册</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="邮箱" class="form-control" id="email">
+                        <p class="error">邮箱格式应为“登录名@主机名.域名”</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="密码（应为3-6位数字字母组合）"
+                               class="form-control pswHide" id="r_password">
+                        <p id="showOrHide" style="color: blue;cursor: pointer;">显示密码</p>
+                        <p class="error">密码应为3-6位数字字母组合</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="确认密码" class="form-control" id="confirm">
+                        <p class="error">密码不一致</p>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="验证码" id="captcha" class="form-control">
+                    </div>
+                </form>
+                <img src="http://localhost:8080/captcha/getCaptcha" style="margin-right: 0.5em">
+                <button class="btn" id="btnRegister" style="width: 14em;">注册</button>
+            </div>
+        </div>
+
+        <div class="row login-form">
+            <div class="col-sm-4 col-sm-offset-4">
+                <form class="l-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="用户名" class="form-control" id="l_name">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="密码" class="form-control" id="l_password">
+                    </div>
+                </form>
+                <button class="btn" id="btnLogin">登录</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Javascript -->
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="assets/js/placeholder.js"></script>
+<![endif]-->
+
+<!--加密-->
+<script src="assets/js/jquery.md5.js"></script>
+
+<!-- 自己写的script -->
+<script src="assets/js/myScript.js"></script>
+
+</body>
+
+</html>
