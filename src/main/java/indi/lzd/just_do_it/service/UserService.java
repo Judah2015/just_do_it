@@ -22,4 +22,12 @@ public class UserService {
             return "n";//意思是name error
         }
     }
+
+    public String loginUser(String name, String password) {
+        if (userRepository.findByNameAndPassword(name, MD5Util.getMD5(password)).isEmpty()) {
+            return "n"; //意思是not ok
+        } else {
+            return "o"; //意思是ok
+        }
+    }
 }

@@ -17,6 +17,10 @@ jQuery(document).ready(function() {
 				$(this).hide();
             });
 
+            $('#r_password').addClass("pswHide");
+            $('#r_password').attr('type', 'password');
+            $('#showOrHide').text('显示密码');
+
     		$('.show-login-form').removeClass('active');
     		$(this).addClass('active');
     		$('.login-form').fadeOut('fast', function(){
@@ -27,6 +31,13 @@ jQuery(document).ready(function() {
     // ---
     $('.show-login-form').on('click', function(){
     	if( ! $(this).hasClass('active') ) {
+            $('.l-form .error').hide();
+            $('.l-form input').val('');
+
+            $('#l_password').addClass("pswHide");
+            $('#l_password').attr('type', 'password');
+            $('#showOrHide_l').text('显示密码');
+
     		$('.show-register-form').removeClass('active');
     		$(this).addClass('active');
     		$('.register-form').fadeOut('fast', function(){

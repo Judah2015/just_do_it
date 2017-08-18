@@ -26,4 +26,9 @@ public class MainController {
             return userService.registerUser(user);
         }
     }
+
+    @RequestMapping("login")
+    public String login(String name, String password) {
+        return userService.loginUser(name, password);
+    }
 }

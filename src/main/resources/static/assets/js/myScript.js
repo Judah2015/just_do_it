@@ -1,5 +1,5 @@
 $(function () {
-    /*点击登录按钮时*/
+    /*点击注册按钮时*/
     $('#btnRegister').click(function () {
         $('#r_name~.error:nth-of-type(2)').hide();
         $('#captcha~.error:nth-of-type(2)').hide();
@@ -56,7 +56,7 @@ $(function () {
         }
 
         /*提交表单*/
-        if(isValid) {
+        if (isValid) {
             $.post('main/register',
                 {
                     name: name,
@@ -76,7 +76,7 @@ $(function () {
                     else {
                         alert("注册成功");
                     }
-            });
+                });
         }
     });
 
@@ -94,8 +94,56 @@ $(function () {
         }
     });
 
+    $('#showOrHide_l').click(function () {
+        if ($('#l_password').hasClass("pswHide")) {
+            $('#l_password').attr('type', 'text');
+            $('#l_password').removeClass("pswHide");
+            $('#showOrHide_l').text("隐藏密码");
+        }
+        else {
+            $('#l_password').attr('type', 'password');
+            $('#l_password').addClass("pswHide");
+            $('#showOrHide_l').text("显示密码");
+        }
+    });
+
     //点击刷新验证码
     $('#captchaImg').click(function () {
         $(this).attr('src', 'http://localhost:8080/captcha/getCaptcha');
+    });
+
+    //点击登录按钮时
+    $('#btnLogin').click(function () {
+        $('.l-form .error:nth-of-type(2)').hide();
+
+        var isValid = true;
+
+        var name = $('#l_name').val();
+        var password = $('#l_password').val();
+
+        if (name == '' || password == '') {
+            $('.l-form .error:nth-of-type(1)').show();
+            var isValid = false;
+        }
+        else {
+            $('.l-form .error:nth-of-type(1)').hide();
+        }
+
+        if (isValid) {
+            $.post('main/login',
+                {
+                    name: name,
+                    password: $.md5(name + $.md5(name + password))
+                },
+                function (data, status) {
+                    if (data == 'n') {
+                        $('.l-form .error:nth-of-type(2)').show();
+                    }
+                    else {
+                        alert("登录成功");
+                    }
+                }
+            );
+        }
     });
 });
