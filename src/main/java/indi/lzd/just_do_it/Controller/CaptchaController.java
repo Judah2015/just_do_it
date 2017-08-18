@@ -5,7 +5,6 @@ import com.google.code.kaptcha.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.imageio.ImageIO;
@@ -57,13 +56,5 @@ public class CaptchaController {
             out.close();
         }
         return null;
-    }
-
-    @RequestMapping("getSession")
-    @ResponseBody
-    public String getSession(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        String code = (String) session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        return code;
     }
 }

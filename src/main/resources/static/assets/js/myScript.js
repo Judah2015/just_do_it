@@ -2,6 +2,7 @@ $(function () {
     /*点击登录按钮时*/
     $('#btnRegister').click(function () {
         $('#r_name~.error:nth-of-type(2)').hide();
+        $('#captcha~.error:nth-of-type(2)').hide();
 
         <!--表单验证-->
         var isValid = true;
@@ -9,6 +10,7 @@ $(function () {
         var name = $('#r_name').val();
         var email = $('#email').val();
         var password = $('#r_password').val();
+        var captcha = $('#captcha').val();
 
         var nameReg = /^[a-zA-Z]{1,3}$/;
         if (!nameReg.test(name)) {
@@ -45,20 +47,34 @@ $(function () {
                 $('#confirm+.error').hide();
             }
         }
+        if (captcha == '') {
+            $('#captcha+.error').show();
+            isValid = false;
+        }
+        else {
+            $('#captcha+.error').hide();
+        }
+
         /*提交表单*/
         if(isValid) {
             $.post('main/register',
                 {
                     name: name,
                     email: email,
-                    password: $.md5(name + $.md5(name + password)) //加密
+                    password: $.md5(name + $.md5(name + password)), //加密
+                    captchaUser: captcha
                 },
                 function (data, status) {
-                    if (data != "ok") {
+                    if (data == "c") {
+                        $('#captcha~.error:nth-of-type(2)').show();
+                        //刷新验证码
+                        $('#captchaImg').attr('src', 'http://localhost:8080/captcha/getCaptcha');
+                    }
+                    else if (data == "n") {
                         $('#r_name~.error:nth-of-type(2)').show();
                     }
                     else {
-                        alert("ok");
+                        alert("注册成功");
                     }
             });
         }
@@ -76,5 +92,10 @@ $(function () {
             $('#r_password').addClass("pswHide");
             $('#showOrHide').text("显示密码");
         }
+    });
+
+    //点击刷新验证码
+    $('#captchaImg').click(function () {
+        $(this).attr('src', 'http://localhost:8080/captcha/getCaptcha');
     });
 });
