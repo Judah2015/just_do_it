@@ -82,10 +82,12 @@
                     </div>
                     <div class="form-group">
                         <input type="text" placeholder="验证码" id="captcha" class="form-control">
+                        <p class="error">请输入验证码</p>
+                        <p class="error">验证码错误</p>
                     </div>
                 </form>
-                <img src="http://localhost:8080/captcha/getCaptcha" style="margin-right: 0.5em">
-                <button class="btn" id="btnRegister" style="width: 14em;">注册</button>
+                <img src="http://localhost:8080/captcha/getCaptcha" style="margin-right: 0.5em" id="captchaImg">
+                <button class="btn" id="btnRegister" style="width: 14.5em;">注册</button>
             </div>
         </div>
 
