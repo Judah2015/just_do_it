@@ -20,6 +20,10 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    /*@Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastLoginTime;*/
+
     public User() {
         super();
     }

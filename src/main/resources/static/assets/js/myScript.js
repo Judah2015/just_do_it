@@ -75,6 +75,7 @@ $(function () {
                     }
                     else {
                         alert("注册成功");
+                        window.location.href = "welcom.html?name=" + name;
                     }
                 });
         }
@@ -141,6 +142,7 @@ $(function () {
                     }
                     else {
                         alert("登录成功");
+                        window.location.href = "welcom.html?name=" + name;
                     }
                 }
             );

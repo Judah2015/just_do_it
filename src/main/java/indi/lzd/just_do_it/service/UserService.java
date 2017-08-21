@@ -30,4 +30,8 @@ public class UserService {
             return "o"; //意思是ok
         }
     }
+
+    public void deleteOld() {
+        userRepository.deleteOldUser();
+    }
 }
