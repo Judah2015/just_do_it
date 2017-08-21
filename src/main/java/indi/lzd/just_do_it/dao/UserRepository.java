@@ -15,6 +15,6 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
     @Transactional
     @Modifying
-    @Query(value = "delete from user where 1 order by id limit 1", nativeQuery = true)
-    public void deleteOldUser();
+    @Query(value = "delete from user where unix_timestamp(last_login_time) < unix_timestamp() - 300", nativeQuery = true)
+    public int deleteLongTimeNoLoginUser();
 }

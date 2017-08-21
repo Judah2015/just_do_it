@@ -61,6 +61,7 @@ $(function () {
                 {
                     name: name,
                     email: email,
+                    lastLoginTime: new Date(),
                     password: $.md5(name + $.md5(name + password)), //加密
                     captchaUser: captcha
                 },
@@ -134,6 +135,7 @@ $(function () {
             $.post('main/login',
                 {
                     name: name,
+                    lastLoginTime: new Date(),
                     password: $.md5(name + $.md5(name + password))
                 },
                 function (data, status) {

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 @RestController
 @RequestMapping("main")
@@ -28,7 +29,7 @@ public class MainController {
     }
 
     @RequestMapping("login")
-    public String login(String name, String password) {
-        return userService.loginUser(name, password);
+    public String login(String name, Date lastLoginTime, String password) {
+        return userService.loginUser(name, lastLoginTime, password);
     }
 }

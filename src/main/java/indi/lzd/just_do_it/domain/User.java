@@ -1,9 +1,7 @@
 package indi.lzd.just_do_it.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class User {
@@ -20,9 +18,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    /*@Column(nullable = false)
+    @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
-    private Date lastLoginTime;*/
+    private Date lastLoginTime;
 
     public User() {
         super();
@@ -56,5 +54,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Date getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 }
