@@ -4,24 +4,118 @@
     <meta charset="UTF-8">
     <title>Just Do It!</title>
 
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <script src="assets/js/jquery.backstretch.js"></script>
-
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.backstretch.js"></script>
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.js"></script>
+
+    <script src="assets/js/welcomScript.js"></script>
+
+    <style type="text/css">
+        .noticeMessage {
+            text-align: center;
+            color: grey;
+            clear: both;
+        }
+
+        .chatBox {
+            margin-left: 2px;
+        }
+
+        .chatBoxMe {
+            float: right;
+            text-align: right;
+            margin-right: 2px;
+        }
+
+        .chatBox, .chatBoxMe {
+            clear: both;
+        }
+
+        .chatName, .chatTime {
+            display: inline-block;
+            margin-bottom: 2px;
+        }
+
+        .chatName {
+            font-size: 2em;
+        }
+
+        .chatTime {
+            color: grey;
+        }
+
+        .chatMsg, .chatMsgMe {
+            border-radius: 3px;
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        .chatMsg {
+            background-color: lightgrey;
+        }
+
+        .chatMsgMe {
+            background-color: lightgreen;
+        }
+
+        #onlineNameList p {
+            border-bottom: solid;
+            border-color: lightgreen;
+            border-width: 1px;
+        }
+
+    </style>
 </head>
 <body>
-
+<div class="top-content">
+    <div class="container">
+        <div class="row" style="height:100px;"></div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2" style="margin-bottom:20px;">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Let's BiBi!</h3>
+                    </div>
+                    <div class="panel-body" style="height: 380px; overflow-y: scroll; overflow: auto"
+                         id="messageWindow"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" placeholder="Message" id="message">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary btn-block" id="send"><span
+                                class="glyphicon glyphicon-send"></span> 发送
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" id="welcom" style="display: inline;"></h3>
+                        <button class="btn btn-info" id="logout" style=""><span class="glyphicon glyphicon-off"></span>
+                        </button>
+                    </div>
+                    <div class="panel-body" style="height: 360px; overflow-y: scroll; overflow: auto">
+                        <p style="border-bottom: solid;border-width: 1px;border-color: lightgreen;">当前在线水货<span
+                                class="glyphicon glyphicon-arrow-down"></span></p>
+                        <div id="onlineNameList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 <!--设置背景-->
 <script>
     $.backstretch("assets/img/backgrounds/1.jpg");
-</script>
-
-<!--tset-->
-<script>
-    $(function () {
-
-    });
 </script>
 </html>

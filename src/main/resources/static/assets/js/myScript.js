@@ -1,4 +1,6 @@
 $(function () {
+    window.name = "";
+
     /*点击注册按钮时*/
     $('#btnRegister').click(function () {
         $('#r_name~.error:nth-of-type(2)').hide();
@@ -76,6 +78,7 @@ $(function () {
                     }
                     else {
                         alert("注册成功");
+                        window.name = "hasLogged";
                         window.location.href = "welcom.html?name=" + name;
                     }
                 });
@@ -144,6 +147,7 @@ $(function () {
                     }
                     else {
                         alert("登录成功");
+                        window.name = "hasLogged";
                         window.location.href = "welcom.html?name=" + name;
                     }
                 }
